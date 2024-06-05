@@ -1,0 +1,50 @@
+﻿@model IEnumerable<PCShopProjekt.Models.ZleceniaViewModel>
+
+<h2>Zlecenia</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Klient</th>
+            <th>Urządzenie</th>
+            <th>Technik</th>
+            <th>Status Płatności</th>
+            <th>Data Przyjęcia</th>
+            <th>Opis Usterki</th>
+            <th>Usługa</th>
+            <th>Status</th>
+            <th>Opcje</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-controller="Klienci" asp-route-id="@item.KlientId">@item.KlientFullName</a>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-controller="Urzadzenia" asp-route-id="@item.KlientId">@item.UrzadzenieDetails</a>
+                </td>
+                <td>
+                    @if (item.TechnikId != null)
+                    {
+                        <a asp-action="Details" asp-controller="Technicy" asp-route-id="@item.TechnikId">@item.TechnikFullName</a>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.TechnikFullName)
+                    }
+                </td>
+                <td>@item.StatusPlatnosci</td>
+                <td>@item.DataPrzyjecia.ToShortDateString()</td>
+                <td>@item.OpisUsterki</td>
+                <td>@item.NazwaUslugi</td>
+                <td>@item.Status</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,35 @@
+﻿@model PCShopProjekt.Models.Urzadzenia
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Szczegóły</h1>
+
+<div>
+    <h4>Urzadzenia</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Producent)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Producent)
+        </dd>
+        <dt class = "col-sm-2">
+            Nazwa urządzenia
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nazwa_urzadzenia)
+        </dd>
+        <dt class = "col-sm-2">
+            Data zakupu
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Data_zakupu)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index" asp-controller="Zlecenia">Powrót</a>
+</div>
