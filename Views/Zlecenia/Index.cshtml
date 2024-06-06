@@ -2,6 +2,10 @@
 
 <h2>Zlecenia</h2>
 
+<p>
+    <a asp-action="Create">Utwórz nowe zlecenie</a>
+</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -43,6 +47,7 @@
                 <td>@item.Status</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
                 </td>
             </tr>
         }
